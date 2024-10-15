@@ -8,4 +8,4 @@ connectDB()
 
 
 
-app.listen(port, (err)=> err? console.error(err): console.log(`SERVER IS RUNNING ON PORT ${port}`) );
+app.listen(port, (err)=> err ? console.error(err): console.log(`SERVER IS RUNNING ON http://localhost/${port}`) );
