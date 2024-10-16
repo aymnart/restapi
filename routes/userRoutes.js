@@ -33,12 +33,14 @@ router.get("/getAll", async(req,res)=>{
 
 //UPDATE
 router.put( "/updateUser" ,async (req,res)=>{
-    try{
 
-    }
-    catch(err){
-        console.error(err);
-    }
+        const {age, email} = req.body;
+        console.log(email,"HELLO")
+        const result = await UserModel.updateMany({age},{email});
+console.log(result,"testttttttttttttttttttttttttt")
+        
+
+   
 
 } )
 module.exports = router;
