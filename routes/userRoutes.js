@@ -13,7 +13,7 @@ router.post( "/addUser", async (req,res)=>{
     })
     const newUser= await user.save()
     res.send({msg:"user added",newUser})
-    console.log({msg:"user added",newUser})
+   
 }
 catch(err){
     console.error(err);
@@ -36,11 +36,16 @@ router.put( "/updateUser" ,async (req,res)=>{
 
         const {age, email} = req.body;
         console.log(email,"HELLO")
-        const result = await UserModel.updateMany({age},{email});
+        console.log(age,"HELLO")
+        const result = await UserModel.updateMany({age},{$set:{email}});
 console.log(result,"testttttttttttttttttttttttttt")
         
-
+res.send(`updated ${result.modifiedCount} documents`)
    
 
 } )
+
+
+//DELETE
+
 module.exports = router;
