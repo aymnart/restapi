@@ -35,17 +35,20 @@ router.get("/getAll", async(req,res)=>{
 router.put( "/updateUser" ,async (req,res)=>{
 
         const {age, email} = req.body;
-        console.log(email,"HELLO")
-        console.log(age,"HELLO")
         const result = await UserModel.updateMany({age},{$set:{email}});
-console.log(result,"testttttttttttttttttttttttttt")
-        
-res.send(`updated ${result.modifiedCount} documents`)
+        res.send(`updated ${result.modifiedCount} documents`)
    
 
 } )
 
 
 //DELETE
+router.delete("/deleteUser", async (req,res)=>{
+    const _id = req.body;
+    console.log(_id);
+    const result = await UserModel.deleteMany({age:{$lt:26}});
+    console.log(result,"test")
+    res.send(`deleted ${result.deletedCount} documents`);
 
+})
 module.exports = router;
