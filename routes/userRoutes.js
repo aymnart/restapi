@@ -1,6 +1,5 @@
 const express = require("express")
 const router = express.Router();
-const userModel = require("../models/User");
 const UserModel = require("../models/User");
 
 //POST 
@@ -8,7 +7,7 @@ router.post( "/addUser", async (req,res)=>{
     try
     {
     const {name,age,email} = req.body;
-    const user = new userModel({
+    const user = new UserModel({
         name,age,email
     })
     const newUser= await user.save()
